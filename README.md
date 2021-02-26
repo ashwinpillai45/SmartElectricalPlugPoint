@@ -1,4 +1,4 @@
-# smartElectronicPlugPoint
+# SmartElectricalPlugPoint
 
 This is a capstone project done by Ashwin, Rateesh and Anvar for Lambton College, Toronto for the year 2021 - winter batch. 
 
