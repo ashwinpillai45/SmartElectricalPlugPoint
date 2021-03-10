@@ -1,0 +1,240 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:AC #PWR?
+U 1 1 60491144
+P 1950 3300
+F 0 "#PWR?" H 1950 3200 50  0001 C CNN
+F 1 "AC" H 1950 3667 50  0000 C CNN
+F 2 "" H 1950 3300 50  0001 C CNN
+F 3 "" H 1950 3300 50  0001 C CNN
+F 4 "110V 60 HZ" H 1950 3576 50  0000 C CNN "Field4"
+	1    1950 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Fuse F?
+U 1 1 604920F1
+P 2350 2850
+F 0 "F?" V 2153 2850 50  0000 C CNN
+F 1 "Fuse" V 2244 2850 50  0000 C CNN
+F 2 "" V 2280 2850 50  0001 C CNN
+F 3 "~" H 2350 2850 50  0001 C CNN
+	1    2350 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Transformer_1P_1S T?
+U 1 1 60492BE0
+P 3100 3350
+F 0 "T?" H 3100 3731 50  0000 C CNN
+F 1 "Transformer_1P_1S" H 3100 3640 50  0000 C CNN
+F 2 "" H 3100 3350 50  0001 C CNN
+F 3 "~" H 3100 3350 50  0001 C CNN
+	1    3100 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Bridge_+-AA D?
+U 1 1 60493AEA
+P 4150 3350
+F 0 "D?" H 4494 3396 50  0000 L CNN
+F 1 "D_Bridge_+-AA" H 4494 3305 50  0000 L CNN
+F 2 "" H 4150 3350 50  0001 C CNN
+F 3 "~" H 4150 3350 50  0001 C CNN
+	1    4150 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 3300 2200 3300
+Wire Wire Line
+	2200 3300 2200 2850
+Wire Wire Line
+	2500 2850 2700 2850
+Wire Wire Line
+	2700 2850 2700 3150
+Wire Wire Line
+	1950 3300 1950 3550
+Wire Wire Line
+	1950 3550 2700 3550
+Connection ~ 1950 3300
+Wire Wire Line
+	3500 3150 3500 2700
+Wire Wire Line
+	3500 2700 4150 2700
+Wire Wire Line
+	4150 2700 4150 3050
+Wire Wire Line
+	3500 3550 3500 3950
+Wire Wire Line
+	3500 3950 4150 3950
+Wire Wire Line
+	4150 3950 4150 3650
+$Comp
+L Device:CP1 CP1
+U 1 1 604959E8
+P 5100 3350
+F 0 "CP1" H 5215 3396 50  0000 L CNN
+F 1 "50V 47uF" H 5215 3305 50  0000 L CNN
+F 2 "" H 5100 3350 50  0001 C CNN
+F 3 "~" H 5100 3350 50  0001 C CNN
+	1    5100 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 60496E95
+P 5750 3350
+F 0 "C1" H 5865 3396 50  0000 L CNN
+F 1 "0.1uF" H 5865 3305 50  0000 L CNN
+F 2 "" H 5788 3200 50  0001 C CNN
+F 3 "~" H 5750 3350 50  0001 C CNN
+	1    5750 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:L78L05_SO8 U?
+U 1 1 60497E9E
+P 6500 2750
+F 0 "U?" H 6500 2992 50  0000 C CNN
+F 1 "L78L05_SO8" H 6500 2901 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6600 2950 50  0001 C CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/15/55/e5/aa/23/5b/43/fd/CD00000446.pdf/files/CD00000446.pdf/jcr:content/translations/en.CD00000446.pdf" H 6700 2750 50  0001 C CNN
+	1    6500 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 6049971A
+P 7200 3400
+F 0 "C2" H 7315 3446 50  0000 L CNN
+F 1 "0.1uF" H 7315 3355 50  0000 L CNN
+F 2 "" H 7238 3250 50  0001 C CNN
+F 3 "~" H 7200 3400 50  0001 C CNN
+	1    7200 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 3350 3850 4200
+Wire Wire Line
+	3850 4200 5100 4200
+Wire Wire Line
+	6500 4200 6500 3050
+Wire Wire Line
+	4450 3350 4450 2750
+Wire Wire Line
+	4450 2750 5100 2750
+Wire Wire Line
+	5100 3200 5100 2750
+Connection ~ 5100 2750
+Wire Wire Line
+	5100 2750 5750 2750
+Wire Wire Line
+	5100 3500 5100 4200
+Connection ~ 5100 4200
+Wire Wire Line
+	5100 4200 5750 4200
+Wire Wire Line
+	5750 3200 5750 2750
+Connection ~ 5750 2750
+Wire Wire Line
+	5750 2750 6200 2750
+Wire Wire Line
+	5750 3500 5750 4200
+Connection ~ 5750 4200
+Wire Wire Line
+	5750 4200 6500 4200
+Wire Wire Line
+	6800 2750 7200 2750
+Wire Wire Line
+	7200 2750 7200 3250
+Wire Wire Line
+	6500 4200 7200 4200
+Wire Wire Line
+	7200 4200 7200 3550
+Connection ~ 6500 4200
+$Comp
+L power:GNDREF #PWR?
+U 1 1 6049FA02
+P 5750 4200
+F 0 "#PWR?" H 5750 3950 50  0001 C CNN
+F 1 "GNDREF" H 5755 4027 50  0000 C CNN
+F 2 "" H 5750 4200 50  0001 C CNN
+F 3 "" H 5750 4200 50  0001 C CNN
+	1    5750 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 604A6B88
+P 7650 3400
+F 0 "C3" H 7765 3446 50  0000 L CNN
+F 1 "100nF" H 7765 3355 50  0000 L CNN
+F 2 "" H 7688 3250 50  0001 C CNN
+F 3 "~" H 7650 3400 50  0001 C CNN
+	1    7650 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 604A70E2
+P 8600 3400
+F 0 "C4" H 8715 3446 50  0000 L CNN
+F 1 "10uF" H 8715 3355 50  0000 L CNN
+F 2 "" H 8638 3250 50  0001 C CNN
+F 3 "~" H 8600 3400 50  0001 C CNN
+	1    8600 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:LD1117S33TR_SOT223 U?
+U 1 1 604A8DC5
+P 8150 2750
+F 0 "U?" H 8150 2992 50  0000 C CNN
+F 1 "LD1117S33TR_SOT223" H 8150 2901 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 8150 2950 50  0001 C CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000544.pdf" H 8250 2500 50  0001 C CNN
+	1    8150 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 2750 7650 2750
+Connection ~ 7200 2750
+Wire Wire Line
+	7650 2750 7650 3250
+Connection ~ 7650 2750
+Wire Wire Line
+	7650 2750 7850 2750
+Wire Wire Line
+	7200 4200 7650 4200
+Wire Wire Line
+	7650 4200 7650 3550
+Connection ~ 7200 4200
+Wire Wire Line
+	8150 3050 8150 4200
+Wire Wire Line
+	8150 4200 7650 4200
+Connection ~ 7650 4200
+Wire Wire Line
+	8450 2750 8600 2750
+Wire Wire Line
+	8600 2750 8600 3250
+Wire Wire Line
+	8600 3550 8600 4200
+Wire Wire Line
+	8600 4200 8150 4200
+Connection ~ 8150 4200
+$EndSCHEMATC
