@@ -38,8 +38,8 @@ void updateIntCharacteristic(String characteristic, String charID)
  
 }
   
-void emitData(String statusP, String current){
-  updateIntCharacteristic(statusP,getStatusID);
+void emitData(String current){
+  //updateIntCharacteristic(statusP,getStatusID);
   updateIntCharacteristic(current,currentID);
 }
   
@@ -57,8 +57,8 @@ if(!ble.sendCommandCheckOK(F("AT+GAPDEVNAME=TEENSY1"))) error(F("Could not set d
 if(!ble.sendCommandCheckOK(F("AT+GATTCLEAR"))) error(F("Could not reset services")); else Serial.println("Services cleared");
 success=ble.sendCommandWithIntReply(F("AT+GATTADDSERVICE=UUID128=88-dd-97-3c-f2-c1-45-e2-8e-32-95-bb-e7-cb-be-9e"), &acsServiceID);
 if(!success) error(F("Cannot Add Service")); else Serial.println("Added Service");
-success=ble.sendCommandWithIntReply(F("AT+GATTADDCHAR=UUID128=88-dd-97-3c-f4-c1-45-e2-8e-32-95-bb-e7-cb-be-9e, PROPERTIES=0x02, MIN_LEN=1, MAX_LEN=20, VALUE=0, DATATYPE=1"), &getStatusID);
-if(!success) error(F("Cannot Add Characteristic"));else Serial.println("Added Characteristic");
+//success=ble.sendCommandWithIntReply(F("AT+GATTADDCHAR=UUID128=88-dd-97-3c-f4-c1-45-e2-8e-32-95-bb-e7-cb-be-9e, PROPERTIES=0x02, MIN_LEN=1, MAX_LEN=20, VALUE=0, DATATYPE=1"), &getStatusID);
+//if(!success) error(F("Cannot Add Characteristic"));else Serial.println("Added Characteristic");
 success=ble.sendCommandWithIntReply(F("AT+GATTADDCHAR=UUID128=88-dd-97-3c-f5-c1-45-e2-8e-32-95-bb-e7-cb-be-9e, PROPERTIES=0x08, MIN_LEN=1, MAX_LEN=20, VALUE=1, DATATYPE=1"), &setStatusID);
 if(!success) error(F("Cannot Add Characteristic"));else Serial.println("Added Characteristic");
 success=ble.sendCommandWithIntReply(F("AT+GATTADDCHAR=UUID128=88-dd-97-3c-f6-c1-45-e2-8e-32-95-bb-e7-cb-be-9e, PROPERTIES=0x02, MIN_LEN=1, MAX_LEN=20, VALUE=0, DATATYPE=1"), &currentID);
@@ -77,7 +77,7 @@ if(amps<0.04)
 statusP=1;
 else
 statusP=0;
-emitData(String(statusP),String(amps));
+emitData(String(statusP)+","+String(amps));
 ble.println(F("AT+GATTCHAR=2"));
 ble.readline();
 relayStat=String(ble.buffer);
